@@ -1,4 +1,7 @@
-<form method="post">
+{% extends 'gestao/base_gestao.html' %}
+
+{% block content %}
+<form action="{% url 'gestao:save' %}" method="post">
     {% csrf_token %}
     <fieldset>
         <legend>
@@ -17,3 +20,4 @@
         <input type="submit" value="Salvar">
     </fieldset>
 </form>
+{% endblock content %}

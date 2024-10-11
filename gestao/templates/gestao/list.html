@@ -1,13 +1,17 @@
-{% if livros %}
-<ul>
-    {% for livro in livros %}
-    <li>
-        <a href="/gestao/{{ livro.id}}">
-            {{ livro.titulo}}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-    <p>Nenhum livro cadastrado</p>
-{% endif %}
+{% extends 'gestao/base_gestao.html' %}
+
+{% block content %}
+    {% if livros %}
+    <ul>
+        {% for livro in livros %}
+        <li>
+            <a href="{% url 'gestao:view' pk=livro.id %}">
+                {{ livro.titulo}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Nenhum livro cadastrado</p>
+    {% endif %}
+{% endblock content %}
